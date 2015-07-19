@@ -1,0 +1,39 @@
+{
+  "name": "properties-decorator",
+  "version": "1.0.0",
+  "description": "Apply getters and setters with decorators",
+  "keywords": [
+    "property",
+    "properties",
+    "getter",
+    "setter",
+    "decorator",
+    "class"
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "babel-tape-runner test/*.js",
+    "compile": "echo \"compiling...\" && babel -d lib/ src/",
+    "lint": "eslint --quiet src/ test/",
+    "prepublish": "npm run compile && npm run test && npm run lint"
+  },
+  "author": {
+    "name": "Maximiliano Fierro",
+    "email": "elmasse@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CocktailJS/properties-decorator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CocktailJS/properties-decorator/issues"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^5.6.6",
+    "babel-eslint": "^3.1.20",
+    "babel-tape-runner": "^1.1.0",
+    "eslint": "^0.24.0",
+    "tap": "^1.3.1"
+  }
+}
