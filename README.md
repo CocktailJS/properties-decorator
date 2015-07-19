@@ -1,8 +1,9 @@
 # properties-decorator
 
 [![npm version](https://badge.fury.io/js/properties-decorator.svg)](http://badge.fury.io/js/properties-decorator)
+[![Build Status](https://travis-ci.org/CocktailJS/properties-decorator.svg)](https://travis-ci.org/CocktailJS/properties-decorator)
 
-Experimental library to create getters and setter with ES7 decorators.
+ES7 experimental library to create getters and setter for initializers with decorators.
 
 ## Install
 
