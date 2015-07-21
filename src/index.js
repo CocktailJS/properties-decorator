@@ -1,12 +1,12 @@
-'use strict'
+'use strict';
 
 function capitalize(name) {
-    let prop = name.replace(/^_/, '')
-    return prop[0].toUpperCase() + prop.substr(1)
+    let prop = name.replace(/^_/, '');
+    return prop[0].toUpperCase() + prop.substr(1);
 }
 
 function propertyName(prefix, name) {
-    return prefix + capitalize(name)
+    return prefix + capitalize(name);
 }
 
 export function property ({getter = 'get', setter = 'set'} = {})  {
@@ -19,10 +19,10 @@ export function property ({getter = 'get', setter = 'set'} = {})  {
                 propertyName(getter, name),
                 {
                     value: function getter() {
-                        return this[name]
+                        return this[name];
                     }
                 }
-            )
+            );
         }
 
         if (setter) {
@@ -31,17 +31,17 @@ export function property ({getter = 'get', setter = 'set'} = {})  {
                 propertyName(setter, name),
                 {
                     value: function setter(value) {
-                        this[name] = value
+                        this[name] = value;
                     }
                 }
-            )
+            );
         }
 
-    }
+    };
 }
 
 export function getter (prefix = 'get') {
     return function (...args) {
-        property({getter: prefix, setter: false})(...args)
-    }
+        property({getter: prefix, setter: false})(...args);
+    };
 }

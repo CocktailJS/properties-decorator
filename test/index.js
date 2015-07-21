@@ -1,8 +1,8 @@
-'use strict'
+'use strict';
 
-import tap from 'tap'
+import tap from 'tap';
 
-import { property, getter } from '../'
+import { property, getter } from '../';
 
 
 tap.test('@property should create a getter and setter', function(suite) {
@@ -13,10 +13,10 @@ tap.test('@property should create a getter and setter', function(suite) {
             value = 1
         }
 
-        t.ok(SUT.prototype.getValue, 'getValue method should be created')
-        t.ok(SUT.prototype.setValue, 'setValue method should be created')
-        t.end()
-    })
+        t.ok(SUT.prototype.getValue, 'getValue method should be created');
+        t.ok(SUT.prototype.setValue, 'setValue method should be created');
+        t.end();
+    });
 
     tap.test('getter: false, default setter', function(t) {
         class SUT {
@@ -24,10 +24,10 @@ tap.test('@property should create a getter and setter', function(suite) {
             value = 1
         }
 
-        t.ok(!SUT.prototype.getValue, 'getValue method should not be created')
-        t.ok(SUT.prototype.setValue, 'setValue method should be created')
-        t.end()
-    })
+        t.notOk(SUT.prototype.getValue, 'getValue method should not be created');
+        t.ok(SUT.prototype.setValue, 'setValue method should be created');
+        t.end();
+    });
 
     tap.test('default getter, setter: false', function(t) {
         class SUT {
@@ -35,10 +35,10 @@ tap.test('@property should create a getter and setter', function(suite) {
             value = 1
         }
 
-        t.ok(SUT.prototype.getValue, 'getValue method should be created')
-        t.ok(!SUT.prototype.setValue, 'setValue method should not be created')
-        t.end()
-    })
+        t.ok(SUT.prototype.getValue, 'getValue method should be created');
+        t.notOk(SUT.prototype.setValue, 'setValue method should not be created');
+        t.end();
+    });
 
     tap.test('getter: "has", default setter', function(t) {
         class SUT {
@@ -46,10 +46,10 @@ tap.test('@property should create a getter and setter', function(suite) {
             value = 1
         }
 
-        t.ok(SUT.prototype.hasValue, 'hasValue method should be created')
-        t.ok(SUT.prototype.setValue, 'setValue method should be created')
-        t.end()
-    })
+        t.ok(SUT.prototype.hasValue, 'hasValue method should be created');
+        t.ok(SUT.prototype.setValue, 'setValue method should be created');
+        t.end();
+    });
 
     tap.test('getter: "has", setter: "apply"', function(t) {
         class SUT {
@@ -57,10 +57,10 @@ tap.test('@property should create a getter and setter', function(suite) {
             value = 1
         }
 
-        t.ok(SUT.prototype.hasValue, 'hasValue method should be created')
-        t.ok(SUT.prototype.applyValue, 'applyValue method should be created')
-        t.end()
-    })
+        t.ok(SUT.prototype.hasValue, 'hasValue method should be created');
+        t.ok(SUT.prototype.applyValue, 'applyValue method should be created');
+        t.end();
+    });
 
     tap.test('it applies getter and setter for variable starting with _', function(t) {
         class SUT {
@@ -68,13 +68,13 @@ tap.test('@property should create a getter and setter', function(suite) {
             _value = 1
         }
 
-        t.ok(SUT.prototype.getValue, 'getValue method should be created')
-        t.ok(SUT.prototype.setValue, 'setValue method should be created')
-        t.end()
-    })
+        t.ok(SUT.prototype.getValue, 'getValue method should be created');
+        t.ok(SUT.prototype.setValue, 'setValue method should be created');
+        t.end();
+    });
 
-    suite.end()
-})
+    suite.end();
+});
 
 tap.test('@getter should create a getter and no setter', function(suite) {
 
@@ -84,10 +84,10 @@ tap.test('@getter should create a getter and no setter', function(suite) {
             value = 1
         }
 
-        t.ok(SUT.prototype.getValue, 'getValue method should be created')
-        t.ok(!SUT.prototype.setValue, 'setValue method should not be created')
-        t.end()
-    })
+        t.ok(SUT.prototype.getValue, 'getValue method should be created');
+        t.notOk(SUT.prototype.setValue, 'setValue method should not be created');
+        t.end();
+    });
 
     tap.test('getter prefix: "is"', function(t) {
         class SUT {
@@ -95,10 +95,10 @@ tap.test('@getter should create a getter and no setter', function(suite) {
             enabled = true
         }
 
-        t.ok(SUT.prototype.isEnabled, 'isEnabled method should be created')
-        t.ok(!SUT.prototype.setEnabled, 'setEnabled method should not be created')
-        t.end()
-    })
+        t.ok(SUT.prototype.isEnabled, 'isEnabled method should be created');
+        t.notOk(SUT.prototype.setEnabled, 'setEnabled method should not be created');
+        t.end();
+    });
 
     tap.test('it applies getter for variable starting with _', function(t) {
         class SUT {
@@ -106,10 +106,10 @@ tap.test('@getter should create a getter and no setter', function(suite) {
             _value = 1
         }
 
-        t.ok(SUT.prototype.getValue, 'getValue method should be created')
-        t.ok(!SUT.prototype.setValue, 'setValue method should not be created')
-        t.end()
-    })
+        t.ok(SUT.prototype.getValue, 'getValue method should be created');
+        t.notOk(SUT.prototype.setValue, 'setValue method should not be created');
+        t.end();
+    });
 
-    suite.end()
-})
+    suite.end();
+});
