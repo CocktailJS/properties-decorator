@@ -70,3 +70,6 @@ class MyClass {
 }
 
 ```
+
+
+## License MIT
