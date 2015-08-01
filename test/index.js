@@ -136,7 +136,7 @@ tap.test('@accessor should create value accessors for _value property', function
         }
 
         let descriptor = Object.getOwnPropertyDescriptor(SUT.prototype, 'value');
-        
+
         t.ok(descriptor.get, 'value get accessor should be created');
         t.notOk(descriptor.set, 'value set accessor should not be created');
         t.end();
@@ -149,10 +149,10 @@ tap.test('@accessor should create value accessors for _value property', function
         }
 
         let descriptor = Object.getOwnPropertyDescriptor(SUT.prototype, 'value');
-        
+
         t.ok(descriptor.set, 'value set accessor should be created');
         t.notOk(descriptor.get, 'value get accessor should not be created');
         t.end();
-    });    
+    });
 
 });

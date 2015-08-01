@@ -2,7 +2,7 @@
 
 
 const GETTER = 'get';
-const SETTER = 'set'
+const SETTER = 'set';
 
 function capitalize(name) {
     let prop = name.replace(/^_/, '');
