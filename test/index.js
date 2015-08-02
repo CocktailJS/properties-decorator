@@ -18,6 +18,17 @@ tap.test('@property should create a getter and setter', function (suite) {
         t.end();
     });
 
+    tap.test('default values invoked as decorator', function (t) {
+        class SUT {
+            @property
+            value = 1
+        }
+
+        t.ok(SUT.prototype.getValue, 'getValue method should be created');
+        t.ok(SUT.prototype.setValue, 'setValue method should be created');
+        t.end();
+    });
+
     tap.test('getter: false, default setter', function (t) {
         class SUT {
             @property({getter: false})
@@ -119,6 +130,19 @@ tap.test('@accessor should create value accessors for _value property', function
     tap.test('default values', function (t) {
         class SUT {
             @accessor()
+            _value = 1
+        }
+
+        let descriptor = Object.getOwnPropertyDescriptor(SUT.prototype, 'value');
+
+        t.ok(descriptor.get, 'value get accessor should be created');
+        t.ok(descriptor.set, 'value set accessor should be created');
+        t.end();
+    });
+
+    tap.test('default values invoked as decorator', function (t) {
+        class SUT {
+            @accessor
             _value = 1
         }
 

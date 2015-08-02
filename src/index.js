@@ -13,10 +13,15 @@ function propertyName(prefix, name) {
     return prefix + capitalize(name);
 }
 
+function invokedAsDecorator(...args) {
+    return (args.length === 3);
+}
+
 // -- PUBLIC API
 
 export function accessor ({getter = true, setter = true} = {}) {
-    return function (target, name, descriptor) {
+
+    function decorator(target, name, descriptor) {
         let accessorName = name.replace(/^_/, '');
         Object.defineProperty(
             target,
@@ -31,14 +36,14 @@ export function accessor ({getter = true, setter = true} = {}) {
             }
         );
 
-        descriptor.enummerable = false;
-        return descriptor;
+    }
 
-    };
+    return  invokedAsDecorator(...arguments) ? decorator(...arguments) :  decorator;
 }
 
 export function property ({getter = GETTER, setter = SETTER} = {})  {
-    return function (target, name, descriptor) {
+
+    function decorator(target, name, descriptor) {
 
         if (getter) {
             Object.defineProperty(
@@ -63,7 +68,9 @@ export function property ({getter = GETTER, setter = SETTER} = {})  {
                 }
             );
         }
-    };
+    }
+
+    return invokedAsDecorator(...arguments) ? decorator(...arguments) :  decorator;
 }
 
 export function getter (prefix = GETTER) {
