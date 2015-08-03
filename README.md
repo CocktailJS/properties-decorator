@@ -22,6 +22,25 @@ npm i -S git://github.com/cocktailjs/properties-decorator
 
 ## API
 
+### @accessor({getter: true, setter: true})
+
+This will create the get and set accessor for an initializer property **prefixed with underscore**.
+
+```js
+class MyClass {
+    @accessor() // generates get/set accessor value
+    _value = 1
+
+    @accessor // generates get/set accessor text
+    _text = 'text'
+}
+
+let obj = new MyClass()
+console.log(obj.value) // call get accessor to retrieve _value -> 1
+```
+
+
+
 ### @property(options = {getter: 'get', setter: 'set'})
 
 It creates a getter and setter based on the prefixes. You can pass `false` on any prefix to not create the setter or getter.
@@ -30,6 +49,9 @@ It creates a getter and setter based on the prefixes. You can pass `false` on an
 class MyClass {
     @property() // this will generate getValue and setValue
     value = 1
+
+    @property // this will generate getText and setText
+    text = 'whoa'
 }
 
 ```
@@ -59,14 +81,20 @@ class MyClass {
 ```js
 'use strict'
 
-import {property, getter} from 'properties-decorator'
+import {property, getter, accessor} from 'properties-decorator'
 
 class MyClass {
     @property({getter: 'is'}) // this will generate isEnabled and setEnabled
     enabled = true
 
+    @property() // underscored initializer, also generates getCount and setCount
+    _count = 0
+
     @getter() // getValue
     value = 1
+
+    @accesor // get/set accesor text
+    _text = 'text'
 }
 
 ```

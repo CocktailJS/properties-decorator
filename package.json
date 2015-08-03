@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Apply getters and setters with decorators",
   "keywords": [
+    "accessor",
+    "accessors",
     "property",
     "properties",
     "getter",
